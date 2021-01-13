@@ -1,10 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<windows.h>
 
 #define coberto 0
 #define descoberto 1
 
-int jogo[4][5]=
+int jogo1[4][5]=
 {
     0,1,2,3,4,
     5,6,7,8,9,
@@ -12,7 +13,7 @@ int jogo[4][5]=
     5,6,7,8,9
 };
 
-int jogo[4][5]=
+int jogo2[4][5]=
 {
     0,0,0,0,0,
     0,0,0,0,0,
@@ -67,7 +68,7 @@ int main(){
                 system("pause");
                 goto jgd2;
             }
-            jogo[l2][c2] = descoberto;
+            jogo2[l2][c2] = descoberto;
             system("cls");
             monta();
             if(jogo1[l][c] != jogo1[l2][c2]){
@@ -92,8 +93,8 @@ void monta(){
             printf("%d ",l+1);
         for(c=0; c<5; c++){
             if(jogo2[l][c]==descoberto)
-                printf("%d ",jogo2[l][c]);
-            else printf(" ");
+                printf("%d|",jogo2[l][c]);
+            else printf(" |");
         }
         printf("\n");
     }
@@ -102,7 +103,7 @@ void monta(){
 
 int analiza(){
     int qt, l, c;
-    for(l=0; l<4; l++) for(c=0; c<5; c++) if(jogo2[l][c]==descobberto) qt++;
+    for(l=0; l<4; l++) for(c=0; c<5; c++) if(jogo2[l][c]==descoberto) qt++;
     if(qt==20) return 1;
     return 0;
 }
