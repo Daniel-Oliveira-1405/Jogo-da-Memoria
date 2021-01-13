@@ -4,7 +4,7 @@
 
 #define coberto 0
 #define descoberto 1
-
+// TABULEIRO
 int jogo1[4][5]=
 {
     0,1,2,3,4,
@@ -12,7 +12,7 @@ int jogo1[4][5]=
     0,1,2,3,4,
     5,6,7,8,9
 };
-
+// PARA SABER QUAIS JÁ FORAM DESCOBERTOS
 int jogo2[4][5]=
 {
     0,0,0,0,0,
@@ -85,7 +85,7 @@ int main(){
     exit(2);
     return 0;
 }
-
+// MONTA O TABULEIRO
 void monta(){
     int l, c;
     printf("  1 2 3 4 5\n");
@@ -94,13 +94,14 @@ void monta(){
         for(c=0; c<5; c++){
             if(jogo2[l][c]==descoberto)
                 printf("%d|",jogo2[l][c]);
+            else if(l<3) printf("_|");
             else printf(" |");
         }
         printf("\n");
     }
     printf("\n\n");
 }
-
+// ANALIZA O JOGO
 int analiza(){
     int qt, l, c;
     for(l=0; l<4; l++) for(c=0; c<5; c++) if(jogo2[l][c]==descoberto) qt++;
